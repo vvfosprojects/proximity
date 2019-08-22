@@ -1,4 +1,5 @@
 ﻿using DomainModel.Classes;
+using MongoDB.Bson;
 
 namespace DomainModel.CQRS.Queries.GetClosePoints
 {
@@ -7,6 +8,6 @@ namespace DomainModel.CQRS.Queries.GetClosePoints
         /// <summary>
         /// Rappresenta l'insieme dei punti che soddisfano il criterio di ricerca
         /// </summary>
-        public GeoShape[] GeoShape { get; set; }
+        public BsonDocument GeoShapes { get; set; }
     }
 }

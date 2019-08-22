@@ -20,7 +20,9 @@ namespace Persistence.MongoDB
 
         public GetClosePointsQueryResult Get(GetClosePointsQuery query)
         {
-            return new GetClosePointsQueryResult() { };
+            return new GetClosePointsQueryResult()
+            {
+            };
         }
     }
 }

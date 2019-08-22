@@ -66,7 +66,7 @@ namespace Persistence.MongoDB
                     .SetIdGenerator(StringObjectIdGenerator.Instance)
                     .SetSerializer(new StringSerializer(BsonType.ObjectId));
                 cm.SetIgnoreExtraElements(true);
-
+                
                 // Unmap property
                 //cm.UnmapProperty(c => c.Lat);
 
@@ -79,11 +79,11 @@ namespace Persistence.MongoDB
             });
         }
 
-        public IMongoCollection<GeoShape> GeoShapeCollection
+        public IMongoCollection<BsonDocument> GeoShapeCollection
         {
             get
             {
-                return database.GetCollection<GeoShape>("geoShape");
+                return database.GetCollection<BsonDocument>("PuntiLinea_EPSG4326");
             }
         }
     }
