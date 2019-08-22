@@ -5,14 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="simpleinjector" Version="4.6.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.9.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CQRS\CQRS.csproj" />
     <ProjectReference Include="..\DomainModel\DomainModel.csproj" />
-    <ProjectReference Include="..\Logging\Logging.csproj" />
-    <ProjectReference Include="..\Persistence.MongoDB\Persistence.MongoDB.csproj" />
   </ItemGroup>
 
 </Project>
+
+

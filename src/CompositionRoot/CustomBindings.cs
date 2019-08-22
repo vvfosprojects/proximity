@@ -10,7 +10,17 @@ namespace CompositionRoot
     {
         internal static void Bind(Container container)
         {
-            // Put here the bindings of your own custom services
+            BindDB_MongoDb(container);
+        }
+
+        private static void BindDB_MongoDb(Container container)
+        {
+            container.Register<DomainModel.Services.IGetClosePoints, Persistence.MongoDB.GetClosePoints>();
+
+            container.Register<Persistence.MongoDB.DbContext>(() =>
+            {
+                return new Persistence.MongoDB.DbContext(@"mongodb://localhost:27017/GeoLoc");
+            }, Lifestyle.Singleton);
         }
     }
 }
