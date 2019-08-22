@@ -79,11 +79,11 @@ namespace Persistence.MongoDB
             });
         }
 
-        public IMongoCollection<GeoShape> GeoShapeCollection
+        public IMongoCollection<BsonDocument> GeoShapeCollection
         {
             get
             {
-                return database.GetCollection<GeoShape>("geoShape");
+                return database.GetCollection<BsonDocument>("POI");
             }
         }
     }
