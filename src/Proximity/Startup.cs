@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Logging;
 
-namespace RockApi
+namespace Proximity
 {
     public class Startup
     {
