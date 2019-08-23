@@ -16,11 +16,5 @@
         /// Contiene l'identificativo del database sorgente
         /// </summary>
         public string SourceCode { get; set; }
-
-        /// <summary>
-        /// Rappresenta lo stato in cui si trova il punto d'interesse
-        /// </summary>
-        public bool Attivo { get; set; }
-
     }
 }
