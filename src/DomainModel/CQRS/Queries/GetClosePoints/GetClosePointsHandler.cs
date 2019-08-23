@@ -16,7 +16,10 @@ namespace DomainModel.CQRS.Queries.GetClosePoints
 
         public GetClosePointsQueryResult Handle (GetClosePointsQuery query)
         {
-            return new GetClosePointsQueryResult() { };
+            return new GetClosePointsQueryResult()
+            {
+                GeoShapes = this.getClosePoints.Get(query).GeoShapes
+            };
         }
     }
 }

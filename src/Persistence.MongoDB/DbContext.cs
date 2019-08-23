@@ -8,9 +8,7 @@ using MongoDB.Driver;
 using System;
 using System.Runtime.CompilerServices;
 
-
 [assembly: InternalsVisibleTo("CompositionRoot")]
-
 
 namespace Persistence.MongoDB
 {
@@ -40,23 +38,6 @@ namespace Persistence.MongoDB
             ConventionRegistry.Register("camel case", pack, t => true);
         }
 
-        private void CreateIndexes()
-        {
-            /*{
-                var indexDefinition = Builders<MyClassName>.IndexKeys
-                    .Ascending(_ => _.FirstProperty)
-                    .Descending(_ => _.SecondProperty);
-
-                var indexOptions = new CreateIndexOptions<MyClassName>
-                {
-                    PartialFilterExpression = Builders<MyClassName>.Filter.Eq(m => m.FirstProperty, true),
-                    Background = true
-                };
-
-                this.ClassNameCollection.Indexes.CreateOne(indexDefinition, indexOptions);
-            }*/
-        }
-
         private void MapClasses()
         {
             BsonClassMap.RegisterClassMap<GeoShape>(cm =>
@@ -79,13 +60,30 @@ namespace Persistence.MongoDB
             });
         }
 
-        public IMongoCollection<BsonDocument> GeoShapeCollection
+        private void CreateIndexes()
+        {
+            /*{
+                var indexDefinition = Builders<MyClassName>.IndexKeys
+                    .Ascending(_ => _.FirstProperty)
+                    .Descending(_ => _.SecondProperty);
+
+                var indexOptions = new CreateIndexOptions<MyClassName>
+                {
+                    PartialFilterExpression = Builders<MyClassName>.Filter.Eq(m => m.FirstProperty, true),
+                    Background = true
+                };
+
+                this.ClassNameCollection.Indexes.CreateOne(indexDefinition, indexOptions);
+            }*/
+        }
+
+
+        public IMongoCollection<GeoShape> GeoShapeCollection
         {
             get
             {
-                return database.GetCollection<BsonDocument>("POI");
+                return database.GetCollection<GeoShape>("POI");
             }
         }
     }
 }
-
