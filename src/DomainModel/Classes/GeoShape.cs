@@ -10,6 +10,5 @@
 
         public bool Attivo { get; set; }
 
-        //public GeoShapeGeometry Geometry { get; set; }
     }
 }
