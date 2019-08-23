@@ -22,7 +22,12 @@ namespace RockApi.Controllers
             this.handler = handler;
         }
 
-
+        /// <summary>
+        /// Il metodo, preso in input le due coordinate Latitudine e Longitudine e una distanza, ricerca 
+        /// punti d'interesse che ricadono all'interno dell'area "disegnata" 
+        /// </summary>
+        /// <param name="criteri"> Rappresenta il DTO di input con i parametri da utilizzare per la ricerc</param>
+        /// <returns>Il metodo ritorna un elenco di punti d'interesse che ricadono all'interno dell'area di ricerca immessa</returns>
         [HttpGet]
         public ActionResult<GetClosePointsQueryResult> Get ([FromQuery] CriteriDiRicerca criteri)
         {
