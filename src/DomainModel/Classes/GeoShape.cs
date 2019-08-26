@@ -16,5 +16,11 @@
         /// Contiene l'identificativo del database sorgente
         /// </summary>
         public string SourceCode { get; set; }
+
+        /// <summary>
+        /// Rappresenta la distaza calcolata rispetto alle coordinate iniziali
+        /// </summary>
+        public Distance Dist { get; set; }
+
     }
 }

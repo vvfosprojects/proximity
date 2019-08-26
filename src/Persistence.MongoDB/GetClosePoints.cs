@@ -23,6 +23,7 @@ namespace Persistence.MongoDB
         {
             var collection = dbContext.GeoShapeCollection;
 
+            /*
             var filter = new BsonDocument
             {
                 { "geometry", new BsonDocument {
@@ -38,8 +39,25 @@ namespace Persistence.MongoDB
                 }
                 }
             };
+            */
 
-            List<GeoShape> list = collection.Find(filter).ToList();
+
+
+
+            var filter = new BsonDocument
+            {
+                    { "near", new BsonDocument {
+                        {"type", "Point"}, { "coordinates", new BsonArray { query.Latitudine, query.Longitudine }} }},
+                        { "distanceField", "dist.calculated"},
+                        { "maxDistance", query.Distance},
+                        { "sperical", true }
+                };
+
+            var pipeline = new[] {
+                new BsonDocument { { "$geoNear", filter } }
+            };
+
+            List<GeoShape> list = collection.Aggregate<GeoShape>(pipeline).ToList();
 
             return new GetClosePointsQueryResult()
             {
